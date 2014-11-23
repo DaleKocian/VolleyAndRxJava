@@ -1,7 +1,8 @@
-package android.example.com.volleyrxjava;
+package android.example.com.volleyrxjava.service;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.example.com.volleyrxjava.MyApplication;
 import android.util.Log;
 
 import com.android.volley.VolleyError;

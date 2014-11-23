@@ -1,4 +1,4 @@
-package android.example.com.volleyrxjava;
+package android.example.com.volleyrxjava.network;
 
 import com.android.volley.toolbox.HurlStack;
 import com.squareup.okhttp.OkHttpClient;
