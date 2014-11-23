@@ -19,6 +19,8 @@ import example.com.volleyrxjava.network.GsonRequest;
 public class MyIntentService extends IntentService {
     public static final String RESULT = "result";
     public static final String URL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7";
+    public static final String URL2 =
+            "http://api.openweathermap.org/data/2.5/forecast/daily?q=94048&mode=json&units=metric&cnt=7";
     public static final String TAG = MyIntentService.class.getSimpleName();
     public static final String NOTIFICATION = "example.com.volleyrxjava";
 
