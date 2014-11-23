@@ -9,17 +9,17 @@ import java.io.Serializable;
  */
 public class Temperature implements Serializable {
     @SerializedName("day")
-    Float day;
+    private Float day;
     @SerializedName("min")
-    Float minimum;
+    private Float minimum;
     @SerializedName("max")
-    Float maximum;
+    private Float maximum;
     @SerializedName("night")
-    Float night;
+    private Float night;
     @SerializedName("eve")
-    Float evening;
+    private Float evening;
     @SerializedName("morn")
-    Float morning;
+    private Float morning;
 
     public Float getDay() {
         return day;

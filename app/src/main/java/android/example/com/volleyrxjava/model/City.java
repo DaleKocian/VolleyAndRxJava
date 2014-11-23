@@ -9,15 +9,15 @@ import java.io.Serializable;
  */
 public class City implements Serializable {
     @SerializedName("id")
-    String id;
+    private String id;
     @SerializedName("name")
-    String name;
+    private String name;
     @SerializedName("coord")
-    Coordinates coordinates;
+    private Coordinates coordinates;
     @SerializedName("country")
-    String country;
+    private String country;
     @SerializedName("population")
-    int population;
+    private int population;
 
     public String getId() {
         return id;

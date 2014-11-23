@@ -16,15 +16,15 @@ public abstract class MultiPartRequest<T> extends Request<T> {
 
     public static final int TIMEOUT_MS = 30000;
     private static final String PROTOCOL_CHARSET = "utf-8";
-    private Response.Listener<T> mListener;
+    private final Response.Listener<T> mListener;
     private Map<String, MultiPartParam> mMultipartParams = null;
     private Map<String, String> mFileUploads = null;
 
     public MultiPartRequest(int method, String url, Response.Listener<T> listener, Response.ErrorListener errorListener) {
         super(method, url, errorListener);
         mListener = listener;
-        mMultipartParams = new HashMap<String, MultiPartParam>();
-        mFileUploads = new HashMap<String, String>();
+        mMultipartParams = new HashMap<>();
+        mFileUploads = new HashMap<>();
     }
 
     /**
@@ -92,8 +92,8 @@ public abstract class MultiPartRequest<T> extends Request<T> {
      */
     public static final class MultiPartParam {
 
-        public String contentType;
-        public String value;
+        public final String contentType;
+        public final String value;
 
         /**
          * Initialize a multipart request param with the value and content type

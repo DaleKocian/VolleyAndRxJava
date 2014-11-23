@@ -26,9 +26,10 @@ import rx.schedulers.Schedulers;
 
 public class MainActivity2 extends FragmentActivity {
 
-    public static final String URL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7";
-    public static final String TAG = MainActivity2.class.getSimpleName();
-    TextView _tvHello;
+    private static final String URL = "http://api.openweathermap.org/data/2" +
+            ".5/forecast/daily?q=94043&mode=json&units=metric&cnt=7";
+    private static final String TAG = MainActivity2.class.getSimpleName();
+    private TextView _tvHello;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,16 +131,6 @@ public class MainActivity2 extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
     public Observable<RequestFuture<JSONObject>> rxGetFutureObject() {
         return Observable.create(new Observable.OnSubscribe<RequestFuture<JSONObject>>() {
             @Override
@@ -152,21 +143,20 @@ public class MainActivity2 extends FragmentActivity {
         });
     }
 
-    public Observable<RequestFuture<JSONObject>> rxGetFutureObject2() {
+    Observable<RequestFuture<JSONObject>> rxGetFutureObject2() {
         final RequestFuture<JSONObject> future = RequestFuture.newFuture();
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(URL, null, future, future);
         MyApplication.addToRequestQueue(jsonObjectRequest);
         Observable<JSONObject> from = Observable.from(future, AndroidSchedulers.mainThread());
-        return from.observeOn(Schedulers.io()).create(new Observable.OnSubscribe<RequestFuture<JSONObject>>() {
+        from.observeOn(Schedulers.io());
+        return Observable.create(new Observable.OnSubscribe<RequestFuture<JSONObject>>() {
             @Override
             public void call(Subscriber<? super RequestFuture<JSONObject>> subscriber) {
                 Log.e(TAG + " HELLO", Thread.currentThread().getName());
                 try {
                     JSONObject jsonObject = future.get();
                     Log.e(TAG + "HELLO", jsonObject.toString());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
+                } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
                 }
                 subscriber.onNext(future);

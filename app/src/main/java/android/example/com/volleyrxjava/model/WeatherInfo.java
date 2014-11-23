@@ -10,21 +10,21 @@ import java.util.List;
  */
 public class WeatherInfo implements Serializable {
     @SerializedName("dt")
-    Long dt;
+    private Long dt;
     @SerializedName("temp")
-    Temperature temperature;
+    private Temperature temperature;
     @SerializedName("pressure")
-    Float pressure;
+    private Float pressure;
     @SerializedName("humidity")
-    Float humidity;
+    private Float humidity;
     @SerializedName("weather")
-    List<Weather> weather;
+    private List<Weather> weather;
     @SerializedName("speed")
-    Float speed;
+    private Float speed;
     @SerializedName("deg")
-    Float degrees;
+    private Float degrees;
     @SerializedName("clouds")
-    Float clouds;
+    private Float clouds;
 
     public Long getDt() {
         return dt;

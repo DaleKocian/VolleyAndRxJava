@@ -10,15 +10,15 @@ import java.util.List;
  */
 public class WeatherData implements Serializable {
     @SerializedName("cod")
-    String cod;
+    private String cod;
     @SerializedName("message")
-    Float message;
+    private Float message;
     @SerializedName("city")
-    City city;
+    private City city;
     @SerializedName("cnt")
-    int count;
+    private int count;
     @SerializedName("list")
-    List<WeatherInfo> weatherInfoList;
+    private List<WeatherInfo> weatherInfoList;
 
     public String getCod() {
         return cod;

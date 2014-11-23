@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException;
  */
 public class SimpleMultiPartRequest extends MultiPartRequest<String> {
 
-    private Response.Listener<String> mListener;
+    private final Response.Listener<String> mListener;
 
     public SimpleMultiPartRequest(String url, Response.Listener<String> listener, Response.ErrorListener errorlistener) {
         super(Method.POST, url, listener, errorlistener);

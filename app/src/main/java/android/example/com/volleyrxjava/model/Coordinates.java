@@ -9,9 +9,9 @@ import java.io.Serializable;
  */
 public class Coordinates implements Serializable {
     @SerializedName("lon")
-    Float longitude;
+    private Float longitude;
     @SerializedName("lat")
-    Float latitude;
+    private Float latitude;
 
     public Float getLongitude() {
         return longitude;

@@ -9,13 +9,13 @@ import java.io.Serializable;
  */
 public class Weather implements Serializable {
     @SerializedName("id")
-    int id;
+    private int id;
     @SerializedName("main")
-    String main;
+    private String main;
     @SerializedName("description")
-    String description;
+    private String description;
     @SerializedName("icon")
-    String icon;
+    private String icon;
 
     public int getId() {
         return id;
