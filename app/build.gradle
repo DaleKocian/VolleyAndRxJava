@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.1"
 
     defaultConfig {
-        applicationId "android.example.com.volleyrxjava"
+        applicationId "example.com.volleyrxjava"
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
