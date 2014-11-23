@@ -18,8 +18,6 @@ import example.com.volleyrxjava.model.WeatherData;
 import example.com.volleyrxjava.service.MyIntentService;
 
 public class MainActivity extends FragmentActivity {
-
-    public static final String URL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7";
     private static final String TAG = MainActivity.class.getSimpleName();
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
 
