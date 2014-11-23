@@ -3,13 +3,12 @@ package android.example.com.volleyrxjava.service;
 import android.app.IntentService;
 import android.content.Intent;
 import android.example.com.volleyrxjava.MyApplication;
+import android.example.com.volleyrxjava.model.WeatherData;
+import android.example.com.volleyrxjava.network.GsonRequest;
 import android.util.Log;
 
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.RequestFuture;
-
-import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 
@@ -28,11 +27,11 @@ public class MyIntentService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        RequestFuture<JSONObject> future = RequestFuture.newFuture();
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(URL, null, future, future);
+        RequestFuture<WeatherData> future = RequestFuture.newFuture();
+        GsonRequest<WeatherData> jsonObjectRequest = new GsonRequest<>(URL, WeatherData.class, null, future, future);
         MyApplication.addToRequestQueue(jsonObjectRequest);
         try {
-            JSONObject response = future.get();
+            WeatherData response = future.get();
             publishResults(response);
         } catch (InterruptedException e) {
             Log.e(TAG, e.getMessage());
@@ -44,9 +43,9 @@ public class MyIntentService extends IntentService {
         }
     }
 
-    private void publishResults(JSONObject result) {
+    private void publishResults(WeatherData result) {
         Intent intent = new Intent(NOTIFICATION);
-        intent.putExtra(RESULT, result.toString());
+        intent.putExtra(RESULT, result);
         sendBroadcast(intent);
     }
 }
