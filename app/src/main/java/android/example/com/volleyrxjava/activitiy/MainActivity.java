@@ -8,12 +8,13 @@ import android.example.com.volleyrxjava.R;
 import android.example.com.volleyrxjava.model.WeatherData;
 import android.example.com.volleyrxjava.service.MyIntentService;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends FragmentActivity {
 
     public static final String URL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7";
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -24,15 +25,18 @@ public class MainActivity extends ActionBarActivity {
             Bundle bundle = intent.getExtras();
             if (bundle != null) {
                 WeatherData weatherData = (WeatherData) bundle.getSerializable(MyIntentService.RESULT);
+                helloWorld.setText(weatherData.toString());
                 Log.e(TAG, weatherData.toString());
             }
         }
     };
+    private TextView helloWorld;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        helloWorld = (TextView) findViewById(R.id.helloWorld);
         Intent intent = new Intent(this, MyIntentService.class);
         startService(intent);
     }
