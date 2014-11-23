@@ -26,9 +26,12 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.jakewharton:butterknife:6.0.0'
+    compile 'com.android.support:support-v4:21.0.2'
     compile 'com.android.support:appcompat-v7:21.0.2'
-    compile 'io.reactivex:rxandroid:0.22.0'
+    compile 'com.netflix.rxjava:rxjava-android:0.20.5'
     compile 'com.mcxiaoke.volley:library:1.0.8'
     compile 'com.squareup.okhttp:okhttp:2.1.0'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
+    compile 'com.google.code.gson:gson:2.3.1'
 }
