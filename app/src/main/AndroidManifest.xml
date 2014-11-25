@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme"
         android:name=".MyApplication">
         <activity
-            android:name=".activitiy.MainActivity4"
+            android:name=".activitiy.MainActivity5"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
